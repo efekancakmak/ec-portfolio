@@ -1,0 +1,48 @@
+/* General styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 200%; /* Make sure the body and html fill the screen */
+    width: 100%;
+    background-image: url('pexels-ronrov-16961102.jpg'); /* Background image */
+    background-size: cover; /* Ensures the background image covers the entire viewport */
+    background-position: top; /* Centers the background image */
+    background-repeat: no-repeat; /* Allows the background to repeat if scrolling down */
+    background-attachment: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Viewport height */
+    font-size: 50px;
+  }
+
+  .moving-eagle {
+    position: absolute;
+    width: 100px; /* Adjust the size of the moving image */
+    height: auto;
+  }
+
+    /* styles.css */
+  #text-container {
+    font-size: 1.5em;
+    line-height: 1.6;
+    overflow: hidden; /* Ensures text doesn't overflow its container */
+    position: absolute;
+    color:goldenrod;
+    top: 450px;
+  }
+
+  #progressive-text {
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  }
+
+  body::before {
+    opacity: 0.5; /* Adjust opacity to darken the background */
+  }
+  
