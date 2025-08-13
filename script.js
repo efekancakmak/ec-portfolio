@@ -1,6 +1,60 @@
 let darkmode = localStorage.getItem('darkmode') ?? "active";
 const themeSwitch = document.getElementById('theme-switch');
 
+const skyGradientColors = {
+    night: {
+        top: '#000033',
+        middle: '#1a1a5a',
+        bottom: '#4a1f3d',
+    },
+    day: {
+        top: '#e6e8ff',
+        middle: '#d6d7f2',
+        bottom: '#f2d9e6',
+    }
+}
+
+const mountainColors = {
+    night: {
+        top: '#303030',
+        middle: '#1a1a1a',
+    },
+    day: {
+        top: '#e0c1bf',
+        middle: '#ffffff',
+    }
+}
+
+const moonGlowColors = {
+    night: [
+        'rgba(255, 255, 255, 0.3)',
+        'rgba(255, 255, 255, 0.1)',
+        'rgba(255, 255, 255, 0)',
+    ],
+    day: [
+        'rgba(242, 217, 230, 0.6)',
+        'rgba(242, 217, 230, 0.2)',
+        'rgba(242, 217, 230, 0)',
+    ]
+}
+
+const moonGradientColors = {
+    night: [
+        '#ffffff',
+        '#f4f4f4',
+        '#e0e0e0',
+        '#d0d0d0',
+        '#c0c0c0',
+    ],
+    day: [
+        '#e3d0cf',
+        '#dbc3c1',
+        '#e0c1bf',
+        '#deb7b4',
+        '#d9aaa7',
+    ],
+}
+
 class MountainScene {
     constructor() {
         this.canvas = document.getElementById('backgroundCanvas');
@@ -33,36 +87,14 @@ class MountainScene {
         this.drawMountains();
     }
 
-    skyGradientColors = {
-        night: {
-            top: '#000033',
-            middle: '#1a1a5a',
-            bottom: '#4a1f3d',
-        },
-        day: {
-            top: '#e6e8ff',
-            middle: '#d6d7f2',
-            bottom: '#f2d9e6',
-        }
-    }
 
-    mountainColors = {
-        night: {
-            top: '#303030',
-            middle: '#1a1a1a',
-        },
-        day: {
-            top: '#e0c1bf',
-            middle: '#ffffff',
-        }
-    }
 
     drawSky() {
         const skyGradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
 
-        skyGradient.addColorStop(0,   this.skyGradientColors[this.mode].top);
-        skyGradient.addColorStop(0.3, this.skyGradientColors[this.mode].middle);
-        skyGradient.addColorStop(0.5, this.skyGradientColors[this.mode].bottom);
+        skyGradient.addColorStop(0, skyGradientColors[this.mode].top);
+        skyGradient.addColorStop(0.3, skyGradientColors[this.mode].middle);
+        skyGradient.addColorStop(0.5, skyGradientColors[this.mode].bottom);
 
         this.ctx.fillStyle = skyGradient;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -83,15 +115,15 @@ class MountainScene {
             moonX, moonY, moonRadius * 2.5
         );
 
-        if (this.mode === "night"){
-            moonGlow.addColorStop(0, 'rgba(255, 255, 255, 0.3)');
-            moonGlow.addColorStop(0.5, 'rgba(255, 255, 255, 0.1)');
-            moonGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        if (this.mode === "night") {
+            moonGlow.addColorStop(0, moonGlowColors.night[0]);
+            moonGlow.addColorStop(0.5, moonGlowColors.night[1]);
+            moonGlow.addColorStop(1, moonGlowColors.night[2]);
         }
         else {
-            moonGlow.addColorStop(0, 'rgba(242, 217, 230, 0.6)');
-            moonGlow.addColorStop(0.5, 'rgba(242, 217, 230, 0.2)');
-            moonGlow.addColorStop(1, 'rgba(242, 217, 230, 0)');
+            moonGlow.addColorStop(0, moonGlowColors.day[0]);
+            moonGlow.addColorStop(0.5, moonGlowColors.day[1]);
+            moonGlow.addColorStop(1, moonGlowColors.day[2]);
         }
 
         this.ctx.fillStyle = moonGlow;
@@ -105,19 +137,19 @@ class MountainScene {
             moonX, moonY, moonRadius
         );
 
-        if (this.mode === "night"){
-            moonGradient.addColorStop(0, '#ffffff');
-            moonGradient.addColorStop(0.2, '#f4f4f4');
-            moonGradient.addColorStop(0.5, '#e0e0e0');
-            moonGradient.addColorStop(0.8, '#d0d0d0');
-            moonGradient.addColorStop(1, '#c0c0c0');
+        if (this.mode === "night") {
+            moonGradient.addColorStop(0, moonGradientColors.night[0]);
+            moonGradient.addColorStop(0.2, moonGradientColors.night[1]);
+            moonGradient.addColorStop(0.5, moonGradientColors.night[2]);
+            moonGradient.addColorStop(0.8, moonGradientColors.night[3]);
+            moonGradient.addColorStop(1, moonGradientColors.night[4]);
         }
-        else{
-            moonGradient.addColorStop(0, '#e3d0cf');
-            moonGradient.addColorStop(0.2, '#dbc3c1');
-            moonGradient.addColorStop(0.5, '#e0c1bf');
-            moonGradient.addColorStop(0.8, '#deb7b4');
-            moonGradient.addColorStop(1, '#d9aaa7');
+        else {
+            moonGradient.addColorStop(0, moonGradientColors.day[0]);
+            moonGradient.addColorStop(0.2, moonGradientColors.day[1]);
+            moonGradient.addColorStop(0.5, moonGradientColors.day[2]);
+            moonGradient.addColorStop(0.8, moonGradientColors.day[3]);
+            moonGradient.addColorStop(1, moonGradientColors.day[4]);
         }
 
         this.ctx.fillStyle = moonGradient;
@@ -130,7 +162,7 @@ class MountainScene {
         const scaleX = this.canvas.width / 800;
         const scaleY = this.canvas.height / 400;
 
-        const secondMountain = [
+        const backMountainPoints = [
             { x: 0, y: 200 },
             { x: 80, y: 210 },
             { x: 160, y: 190 },
@@ -144,7 +176,7 @@ class MountainScene {
             { x: 800, y: 230 }
         ].map(p => ({ x: p.x * scaleX, y: p.y * scaleY }));
 
-        const mountainPoints = [
+        const frontMountainPoints = [
             { x: 0, y: 250 },
             { x: 60, y: 260 },
             { x: 120, y: 240 },
@@ -164,21 +196,21 @@ class MountainScene {
 
         this.ctx.beginPath();
         this.ctx.moveTo(0, this.canvas.height);
-        secondMountain.forEach(point => {
+        backMountainPoints.forEach(point => {
             this.ctx.lineTo(point.x, point.y);
         });
         this.ctx.lineTo(this.canvas.width, this.canvas.height);
-        this.ctx.fillStyle = this.mountainColors[this.mode].top;
+        this.ctx.fillStyle = mountainColors[this.mode].top;
         this.ctx.fill();
 
 
         this.ctx.beginPath();
         this.ctx.moveTo(0, this.canvas.height);
-        mountainPoints.forEach(point => {
+        frontMountainPoints.forEach(point => {
             this.ctx.lineTo(point.x, point.y);
         });
         this.ctx.lineTo(this.canvas.width, this.canvas.height);
-        this.ctx.fillStyle = this.mountainColors[this.mode].middle;
+        this.ctx.fillStyle = mountainColors[this.mode].middle;
         this.ctx.fill();
     }
 }
@@ -212,23 +244,23 @@ const enableDarkmode = () => {
     localStorage.setItem('darkmode', 'active');
     new MountainScene();
     new SmoothScroller();
-  }
-  
-  const disableDarkmode = () => {
+}
+
+const disableDarkmode = () => {
     document.body.classList.remove('darkmode');
     localStorage.setItem('darkmode', "deactive");
     new MountainScene();
     new SmoothScroller();
-  }
-  if(darkmode === "active") enableDarkmode();
-  
-  themeSwitch.addEventListener("click", () => {
+}
+if (darkmode === "active") enableDarkmode();
+
+themeSwitch.addEventListener("click", () => {
     darkmode = localStorage.getItem('darkmode');
     darkmode !== "active" ? enableDarkmode() : disableDarkmode();
-  })
+})
 
 
-  // Initialize everything when DOM is loaded
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new MountainScene();
     new SmoothScroller();

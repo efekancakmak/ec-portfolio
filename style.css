@@ -1,4 +1,4 @@
-:root{
+:root {
   --base-color: white;
   --base-color-rgb: 255, 255, 255;
   --base-variant: #e8e9ed;
@@ -10,7 +10,7 @@
 }
 
 
-.darkmode{
+.darkmode {
   --base-color: #1a1a1a;
   --base-color-rgb: 26, 26, 26;
   --base-variant: #101425;
@@ -40,7 +40,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -66,11 +67,12 @@ body, html {
 .navbar li {
   align-content: center;
 }
+
 @media (max-width: 600px) {
   .navbar {
-      padding: 10px 16px;
-      border-radius: 20px;
-      top: 10px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    top: 10px;
   }
 }
 
@@ -111,7 +113,8 @@ body, html {
   padding: 0;
 }
 
-#about, #contact {
+#about,
+#contact {
   background-color: var(--base-color);
 }
 
@@ -182,19 +185,21 @@ body, html {
 
 @keyframes slideFog {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
+
   100% {
-      transform: translateX(-40%);
+    transform: translateX(-40%);
   }
 }
 
 @keyframes slideFogFlipped {
   0% {
-      transform: translateX(0) scaleY(-1);
+    transform: translateX(0) scaleY(-1);
   }
+
   100% {
-      transform: translateX(-40%) scaleY(-1);
+    transform: translateX(-40%) scaleY(-1);
   }
 }
 
@@ -341,174 +346,174 @@ body, html {
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-      padding: 10px 20px;
-      top: 10px;
+    padding: 10px 20px;
+    top: 10px;
   }
-  
+
   .nav-links {
-      gap: 15px;
+    gap: 15px;
   }
-  
+
   .nav-links a {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
-  
+
   .content h1 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
-  
+
   .content h2 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
-  
+
   .content p {
-      font-size: 1.1rem;
+    font-size: 1.1rem;
   }
-  
+
   .about-container {
-      flex-direction: column;
-      text-align: center;
-      gap: 30px;
-      padding: 10vh 5vh;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 10vh 5vh;
   }
-  
+
   .image-container img {
-      width: 250px;
-      height: 250px;
+    width: 250px;
+    height: 250px;
   }
-  
+
   .content-container {
-      text-align: center;
+    text-align: center;
   }
-  
+
   .content-container h2 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
-  
+
   .content-container p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
-  
+
   .work-experience {
-      padding: 0 15px;
+    padding: 0 15px;
   }
-  
+
   .work-experience h1 {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
-  
+
   .experience-item {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
-  
+
   .experience-item .header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
   }
-  
+
   .experience-item .header .duration {
-      margin-left: 0;
+    margin-left: 0;
   }
-  
+
   .experience-item .header h2 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
-  
+
   .experience-item .header h3 {
-      font-size: 1.1rem;
+    font-size: 1.1rem;
   }
-  
+
   .contact-links {
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
   }
-  
+
   .contact-link {
-      padding: 0.9rem 1.3rem;
-      font-size: 1rem;
+    padding: 0.9rem 1.3rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .nav-links {
-      gap: 10px;
+    gap: 10px;
   }
-  
+
   .nav-links a {
-      font-size: 0.8rem;
-      padding: 3px 8px;
+    font-size: 0.8rem;
+    padding: 3px 8px;
   }
-  
+
   .content h1 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
-  
+
   .content h2 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
-  
+
   .content p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
-  
+
   .image-container img {
-      width: 200px;
-      height: 200px;
+    width: 200px;
+    height: 200px;
   }
-  
+
   .work-experience h1 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
-  
+
   .experience-item {
-      padding: 1rem;
+    padding: 1rem;
   }
-  
+
   .contact-links {
-      gap: 1rem;
-      margin-top: 1.5rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
-  
+
   .contact-link {
-      padding: 0.8rem 1.2rem;
-      font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
   }
-  
+
   .contact-icon {
-      width: 20px;
-      height: 20px;
+    width: 20px;
+    height: 20px;
   }
 }
 
 
 @media (max-width: 500px) {
   .navbar {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      left: auto;
-      top: auto;
-      transform: none;
-      padding: 10px 8px;
-      border-radius: 15px;
-      max-width: auto;
-      width: auto;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    top: auto;
+    transform: none;
+    padding: 10px 8px;
+    border-radius: 15px;
+    max-width: auto;
+    width: auto;
   }
-  
+
   .nav-links {
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
   }
-  
+
   .nav-links a {
-      padding: 4px 8px;
-      font-size: 0.7rem;
+    padding: 4px 8px;
+    font-size: 0.7rem;
   }
-  
+
   #theme-switch {
-      margin-top: 6px;
+    margin-top: 6px;
   }
 }
 
@@ -556,24 +561,26 @@ body, html {
 
 .contact-link span {
   white-space: nowrap;
-} 
+}
 
 
 
-#theme-switch{
+#theme-switch {
   background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#theme-switch svg:last-child{
+#theme-switch svg:last-child {
   display: none;
 }
-.darkmode #theme-switch svg:first-child{
+
+.darkmode #theme-switch svg:first-child {
   display: none;
 }
-.darkmode #theme-switch svg:last-child{
+
+.darkmode #theme-switch svg:last-child {
   display: block;
 }
 
@@ -586,30 +593,39 @@ body, html {
 .wave-welcome-text span:nth-child(1) {
   animation-delay: 0s;
 }
+
 .wave-welcome-text span:nth-child(2) {
   animation-delay: 0.15s;
 }
+
 .wave-welcome-text span:nth-child(3) {
   animation-delay: 0.3s;
 }
+
 .wave-welcome-text span:nth-child(4) {
   animation-delay: 0.45s;
 }
+
 .wave-welcome-text span:nth-child(5) {
   animation-delay: 0.6s;
 }
+
 .wave-welcome-text span:nth-child(6) {
   animation-delay: 0.75s;
 }
+
 .wave-welcome-text span:nth-child(7) {
   animation-delay: 0.9s;
 }
 
 @keyframes wave {
-  0%, 100% {
-      transform: translateY(0);
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
+
   50% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 }
